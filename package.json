@@ -5,10 +5,24 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "format": "turbo format",
+    "format:check": "turbo format:check",
+    "format:fix": "prettier --write .",
+    "check-types": "turbo run check-types",
+    "docker:up": "docker-compose -f infrastructure/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f infrastructure/docker-compose.yml down",
+    "docker:logs": "docker-compose -f infrastructure/docker-compose.yml logs -f",
+    "docker:build": "docker-compose -f infrastructure/docker-compose.yml build",
+    "docker:restart": "docker-compose -f infrastructure/docker-compose.yml restart",
+    "docker:stop": "docker-compose -f infrastructure/docker-compose.yml stop",
+    "docker:ps": "docker-compose -f infrastructure/docker-compose.yml ps",
+    "docker:exec": "docker-compose -f infrastructure/docker-compose.yml exec",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
     "turbo": "^2.5.2",
     "typescript": "5.8.2"
@@ -16,5 +30,14 @@
   "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md}": [
+      "prettier --write"
+    ],
+    "*.py": [
+      "black",
+      "isort"
+    ]
   }
 }

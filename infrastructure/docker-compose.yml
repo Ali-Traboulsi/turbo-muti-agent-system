@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  # 1) Redis (for state + pubsub)
+  redis:
+    image: redis:6-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - dapr-network
+
+  # 2) Dapr placement service (for Actor placement; useful even if not using actors)
+  dapr-placement:
+    image: "daprio/dapr"
+    command: ["placement", "--port", "50005", "--app-id", "dapr-placement"]
+    container_name: dapr-placement
+    ports:
+      - "50005:50005"
+    networks:
+      - dapr-network
+
+networks:
+  dapr-network:
+    driver: bridge

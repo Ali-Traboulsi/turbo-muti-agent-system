@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+
+# Build outputs
+dist/
+build/
+.next/
+__pycache__/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+
+# Dapr
+dapr/
+
+# Python specific
+*.pyc
+*.pyo
+*.egg-info/

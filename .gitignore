@@ -36,3 +36,27 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+# pythong virtual environments
+venv/
+# Python cache
+__pycache__/
+# Python bytecode
+*.py[cod]
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+# Python egg files
+*.egg
+# Python distribution files
+*.egg-info/
+# Python virtual environment
+# PyInstaller
+# PyInstaller creates a build/ folder and a dist/ folder
+# PyInstaller also creates a .spec file
+
+# site packages
+site-packages/
+# Pytest cache
+.cache/
+# mypy cache
+.mypy_cache/
